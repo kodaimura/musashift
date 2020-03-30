@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>むさしふと</title>
+<style type="text/css">
+  #id_days, #id_days30, #id_days60 {
+    width: 300px;
+    height: 20px;
+  }
+</style>
+</head>
+<body>
+<table  border="1" style="border-collapse: collapse">
+  <caption>"{{ name }}"さんのシフト登録状況</caption>
+  <tr>
+    <td>定刻出勤可</td>
+    <td>{{ state }}</td>
+  </tr>
+  <tr>
+    <td>遅れ出勤可</td>
+    <td>{{ state_late }}</td>
+  </tr>
+</table>
+<br>
+<p>入れる日にちを下の枠に<br>
+（例）1.2.3.10.11.13.25.26.30　の様に半角数字を. または ,で区切って記入して下さい。</p>
+
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">送信</button>
+</form>
+<p>{{ days }}</p>
+<p>{{ days_late }}</p>
+<br>
+
+
+<p>21日まで変更可能です。</p>
+<button type="submit"><a href="../../logout/">ログアウト</a></button>
+
+</body>
+</html>

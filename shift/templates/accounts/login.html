@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>むさしふと</title>
+
+</head>
+<body class="hold-transition login-page">
+  <h1>むさしふと</h1>
+  
+  <h2>ログイン</h2>
+
+  <form action="" method="POST"> 
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field }} 
+    {% endfor %}
+
+    {% for error in form.non_field_errors %}    
+      <p>{{ error }}</p>
+    {% endfor %}
+
+    <button type="submit">ログイン</button>
+  </form>
+  <br>
+  <h2>アカウント登録</h2>
+  <p>アカウントをお持ちでない方は<a href="../signup/">こちら</a>からアカウント登録をしてください。</p>
+  <br>
+  <h2>よしこさん</h2>
+  <p>よしこさんは<a href="{% url 'shiftapp:yoshico'%}">こちら</a></p>
+
+</body>
+</html>

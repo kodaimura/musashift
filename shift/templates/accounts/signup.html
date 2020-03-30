@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>むさしふと</title>
+</head>
+<body>
+<h1>むさしふと</h1>
+  <p>アカウント作成ページです。アカウントをすでにお持ちの方は<a href="../login/">こちら</a>からログインしてください。</p>
+  <p>登録が成功すると自動的にログインページに移動しますので、ログインしてご利用ください。</p>
+  <p>アカウント登録後ログインページに移動しない場合、アカウント作成が成功していませんので、ユーザー名を変更するか、<br>パスワードを変えるなどして再度ご登録お願いします。</p>
+  <p>ニックネームは1文字で決めてください。</p>
+
+  <h2>アカウント登録</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">登録</button>
+  </form>
+<br>
+<a href="../login/">戻る</a>
+</body>
+</html>

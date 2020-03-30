@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>むさしふと</title>
+</head>
+<body>
+<p>現在のシフト提出状況です。</p>
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>定刻出勤可能日</th>
+    <th>遅れ出勤可能日</th>
+  </tr>
+  {% for d in data %}
+  <tr>
+    <td>{{ d.name }}</td>
+    <td>{{ d.days }}</td>
+    <td>{{ d.days_late }}</td>
+  </tr>
+  {% endfor %}
+  <!--{% csrf_token %}-->
+</table>
+<br>
+<form action="{% url 'shiftapp:makeshift' %}" method="get">
+<button type="submit">シフト作成</button>
+</form>
+<br>
+<a href="../login/">戻る</a>
+<br>
+<br>
+<br>
+<p>シフトの提出状況をリセットする場合は下の枠に reset と入力してリセットボタンを押して下さい。</p>
+<p>この操作は毎月20日以前に行って下さい。</p>
+<p>20日以降に行うと新しく提出されたシフト情報が全て失われますので注意して下さい。</p>
+<form action="" method="post">
+{{ f.as_p }}
+{% csrf_token %}
+<button type="submit">リセット</button>
+</form>
+<br>
+
+
+</body>
+</html>

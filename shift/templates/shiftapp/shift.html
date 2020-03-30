@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>むさしふと</title>
+
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+{% for i in nls %}
+{{ i }}
+{% endfor %}
+<br>
+<br>
+<table  border="1" style="border-collapse: collapse">
+  <tr>
+    <th style="color: red">日</th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th style="color: blue">土</th>
+  </tr>
+
+  {% for week in shift %}
+  <tr> 
+    {% for day in week %}
+    <td>
+      {{ day }}
+    </td>
+    {% endfor %}
+  </tr> 
+  {% endfor %}
+</table>
+<p>このシフトは再読み込み毎に微妙に変化します。</p>
+<p>何度か再読み込みしてるともっと良いシフトになることもあります。</p>
+<p>シフトを決定する場合は写真を撮るなどして記録して下さい。</p>
+<br>
+<a href="../yoshico/">戻る</a>
+</body>
+</html>
