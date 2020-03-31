@@ -3,7 +3,7 @@ from .forms import ResetForm
 from accounts.views import Login, Logout, signup
 from accounts.models import Profile
 from django.db.models import Q
-import numpy as np
+#import numpy as np
 import random
 
 import datetime
@@ -105,7 +105,13 @@ def member_to_pair(member, dic):
     else:
         return ls
     
-    
+def var(ls):
+    mean = sum(ls) / len(ls)
+    s = 0
+    for i in ls:
+        s += (i - mean) ** 2
+    return s / len(ls)
+
 def eval(shift, member_list):
     late_count = 0
     nls = []
@@ -117,7 +123,7 @@ def eval(shift, member_list):
         late_count += n_late
         nls.append(n + n_late)
         nls2.append(member + ':'+ str(n + n_late))
-    return - np.var(nls) - late_count, nls2
+    return - var(nls) - late_count, nls2
         
         
 def choiceshift(basels, member_list):
