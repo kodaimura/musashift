@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<h2>{{ month }}月のシフト</h2>
 {% for i in nls %}
 {{ i }}
 {% endfor %}
@@ -28,19 +29,22 @@
   </tr>
 
   {% for week in shift %}
-  <tr> 
+  <tr>
     {% for day in week %}
     <td>
       {{ day }}
     </td>
     {% endfor %}
-  </tr> 
+  </tr>
   {% endfor %}
 </table>
 <p>このシフトは再読み込み毎に微妙に変化します。</p>
-<p>何度か再読み込みしてるともっと良いシフトになることもあります。</p>
+<p>何度か再読み込みすると、もっと理想的なシフトになることもあります。</p>
 <p>シフトを決定する場合は写真を撮るなどして記録して下さい。</p>
 <br>
 <a href="../yoshico/">戻る</a>
+<br>
+<br>
+<a href="../../login/">top</a>
 </body>
 </html>

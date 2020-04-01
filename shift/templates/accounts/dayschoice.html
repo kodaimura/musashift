@@ -5,30 +5,26 @@
 <meta charset="UTF-8">
 <title>むさしふと</title>
 <style type="text/css">
-  #id_days, #id_days30, #id_days60 {
-    width: 300px;
-    height: 20px;
+  #id_days, #id_days_late {
+    width: 500px;
+    height: 50px;
+  }
+  button {
+    width: 100px;
+    height: 50px;
   }
 </style>
 </head>
 <body>
+<h2>"{{ name }}"</h2>さんようこそ
 <table  border="1" style="border-collapse: collapse">
-  <caption>"{{ name }}"さんのシフト登録状況</caption>
-  <tr>
-    <td>定刻出勤可</td>
-    <td>{{ state }}</td>
-  </tr>
-  <tr>
-    <td>遅れ出勤可</td>
-    <td>{{ state_late }}</td>
-  </tr>
-</table>
-<br>
-<p>入れる日にちを下の枠に<br>
-（例）1.2.3.10.11.13.25.26.30　の様に半角数字を. または ,で区切って記入して下さい。</p>
 
-<form method="post">
-{% csrf_token %}
+<br>
+<p><font size="5">入れる日にちを下の枠に<br>
+（例）1.2.3.10.11.13.25.26<br>
+    の様に半角数字を. または ,で区切って記入して下さい。</font></p>
+
+<form method="post">{% csrf_token %}
 {{ form.as_p }}
 <button type="submit">送信</button>
 </form>
@@ -37,7 +33,8 @@
 <br>
 
 
-<p>21日まで変更可能です。</p>
+<p>23日まで変更可能です。</p>
+<p>全員の登録状況は、よしこさんのページで確認できます。</p>
 <button type="submit"><a href="../../logout/">ログアウト</a></button>
 
 </body>

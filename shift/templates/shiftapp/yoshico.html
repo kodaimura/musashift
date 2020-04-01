@@ -20,10 +20,10 @@
     <td>{{ d.days_late }}</td>
   </tr>
   {% endfor %}
-  <!--{% csrf_token %}-->
+
 </table>
 <br>
-<form action="{% url 'shiftapp:makeshift' %}" method="get">
+<form action="{% url 'shiftapp:makeshift' %}" method="get">{% csrf_token %}
 <button type="submit">シフト作成</button>
 </form>
 <br>
@@ -32,8 +32,8 @@
 <br>
 <br>
 <p>シフトの提出状況をリセットする場合は下の枠に reset と入力してリセットボタンを押して下さい。</p>
-<p>この操作は毎月20日以前に行って下さい。</p>
-<p>20日以降に行うと新しく提出されたシフト情報が全て失われますので注意して下さい。</p>
+<p>この操作は毎月15日以前に行って下さい。</p>
+<p>15日以降に行うと新しく提出されたシフト情報が全て失われますので注意して下さい。</p>
 <form action="" method="post">
 {{ f.as_p }}
 {% csrf_token %}
